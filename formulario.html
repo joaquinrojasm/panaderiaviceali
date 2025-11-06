@@ -1,25 +1,15 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Nuevo Producto | Sistema Viceali</title>
     <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-
+        html, body { height: 100%; margin: 0; padding: 0; }
         body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            display: flex; flex-direction: column; min-height: 100vh;
             font-family: 'Poppins', sans-serif;
-            background: #fffaf3;
-            color: #333;
+            background: #fffaf3; color: #333;
         }
-
-        /* Header igual que index.html */
         header {
             background-color: #f47b20;
             color: white;
@@ -27,34 +17,16 @@
             text-align: center;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         }
-
-        header h1 {
-            font-size: 2.4em;
-            letter-spacing: 1px;
-            margin: 0;
-        }
-
-        header p {
-            font-size: 1.1em;
-            opacity: 0.9;
-            margin-top: 5px;
-        }
-
-        header a {
-            color: white;
-            text-decoration: none;
-        }
-
+        header h1 a { color: white; text-decoration: none; }
         main {
             flex: 1;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start; /* contenido debajo del header */
+            justify-content: flex-start;
             align-items: center;
             text-align: center;
-            padding: 30px 20px; 
+            padding: 30px 20px;
         }
-
         .container {
             width: 90%;
             max-width: 400px;
@@ -62,79 +34,35 @@
             border-radius: 10px;
             box-shadow: 0 3px 10px rgba(0,0,0,0.1);
             padding: 30px 40px;
-            margin-top: 20px; /* un poquito más arriba de la parte central */
+            margin-top: 20px;
         }
-
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            align-items: stretch; /* labels a la izquierda */
-        }
-
-        label { 
-            font-weight: bold; 
-            margin-bottom: 5px;
-            text-align: left; /* texto alineado a la izquierda */
-        }
-
-        input, select {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 1em;
-        }
-
+        form { display: flex; flex-direction: column; gap: 15px; align-items: stretch; }
+        label { font-weight: bold; margin-bottom: 5px; text-align: left; }
+        input, select { padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 1em; }
         button {
-            background-color: #f47b20;
-            color: white;
-            border: none;
-            margin: 15px;
-            padding: 8px 16px; /* un poco más pequeño */
-            font-size: 0.95em;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            align-self: center; /* centrado en el formulario */
+            background-color: #f47b20; color: white; border: none;
+            padding: 8px 16px; font-size: 0.95em; border-radius: 6px; cursor: pointer;
+            transition: background-color 0.3s; align-self: center;
         }
         button:hover { background-color: #e06710; }
-
-        .back {
-            display: inline-block;
-            margin-top: 15px;
-            text-decoration: none;
-            color: #f47b20;
-            font-weight: bold;
-            transition: 0.3s;
-        }
+        .back { display: inline-block; margin-top: 15px; text-decoration: none; color: #f47b20; font-weight: bold; transition: 0.3s; }
         .back:hover { color: #e06710; }
-
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 12px;
-            text-align: center;
-            font-size: 0.9em;
-            width: 98.75%;
-        }
+        footer { background-color: #333; color: #fff; padding: 12px; text-align: center; font-size: 0.9em; width: 98.75%; }
     </style>
 </head>
 <body>
-
 <header>
-    <h1><a th:href="@{/}">Agregar producto</a></h1>
+    <h1><a href="index.html">Sistema Viceali</a></h1>
 </header>
 
 <main>
     <div class="container">
-        <form th:action="@{/productos/guardar}" th:object="${producto}" method="post">
-            <input type="hidden" th:field="*{id}" />
-
+        <form action="#" method="post">
             <label>Nombre del Producto:</label>
-            <input type="text" th:field="*{nombre}" placeholder="Ej. Pan integral" required>
+            <input type="text" placeholder="Ej. Pan integral" required>
 
             <label>Tipo de Producto:</label>
-            <select th:field="*{tipoProducto}" required>
+            <select required>
                 <option value="" disabled selected>Seleccione tipo</option>
                 <option value="Pan">Pan</option>
                 <option value="Postre">Postre</option>
@@ -142,20 +70,20 @@
             </select>
 
             <label>Precio (S/):</label>
-            <input type="number" th:field="*{precio}" step="0.01" placeholder="Ej. 2.50" required>
+            <input type="number" step="0.01" placeholder="Ej. 2.50" required>
 
             <label>Stock:</label>
-            <input type="number" th:field="*{cantidad}" placeholder="Ej. 50" required>
-            <button type="submit">Guardar producto</button>
+            <input type="number" placeholder="Ej. 50" required>
+
+            <button type="submit">Guardar Producto</button>
         </form>
 
-        <a th:href="@{/productos}" class="back">⬅ Volver al listado</a>
+        <a href="lista.html" class="back">⬅ Volver al listado</a>
     </div>
 </main>
 
 <footer>
     © 2025 Panadería–Pastelería Viceali | Todos los derechos reservados
 </footer>
-
 </body>
-</html>
+</html
