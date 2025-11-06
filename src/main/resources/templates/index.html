@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio | Sistema Viceali</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #fff8f0, #ffe5cc);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #f47b20;
+            color: white;
+            padding: 25px 0;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.4em;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+            transform: translateY(-10%); /* 🔹 mueve todo un poco hacia arriba */
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            background-color: #fff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo span {
+            font-size: 3em;
+            color: #f47b20;
+        }
+
+        .intro {
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        .intro p {
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        .menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #fff;
+            padding: 30px 35px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: 0.3s ease;
+            text-decoration: none;
+            color: #333;
+            width: 240px;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+        }
+
+        .card h3 {
+            margin-top: 15px;
+            color: #f47b20;
+        }
+
+        h3, p {
+            margin-top: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 12px;
+            text-align: center;
+            font-size: 0.9em;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>
+            <a th:href="@{/}" style="color:white; text-decoration:none;">Sistema Viceali</a>
+        </h1>
+        <p>Gestión integral de panadería, pastelería y bodega</p>
+    </header>
+
+    <main>
+        <div class="logo">
+            <span>🍞</span>
+        </div>
+
+        <div class="intro">
+            <p>
+                Bienvenido al sistema de gestión interna de <strong>Viceali</strong>.<br><br>
+                Administra de forma eficiente tu inventario, proveedores y operaciones diarias 
+                desde un entorno fácil de usar y visualmente amigable.
+            </p>
+        </div>
+
+        <div class="menu">
+            <a th:href="@{/productos}" class="card">
+                <div>🧺</div>
+                <h3>Módulo de Inventario</h3>
+                <p>Controla los productos disponibles, su stock y precios.</p>
+            </a>
+
+            <a href="#" class="card">
+                <div>🚚</div>
+                <h3>Módulo de Proveedores</h3>
+                <p>Gestiona tus proveedores y el historial de compras.</p>
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        © 2025 Panadería–Pastelería Viceali | Todos los derechos reservados
+    </footer>
+</body>
+</html>
